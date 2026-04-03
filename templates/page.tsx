@@ -1,6 +1,12 @@
-import { getSignInUrl, withAuth } from '@workos-inc/authkit-nextjs'
+import { withAuth, getSignInUrl } from '@workos-inc/authkit-nextjs'
 import { redirect } from 'next/navigation'
 import { Button } from '@/components/ui/button'
+
+async function signIn() {
+  'use server'
+  const url = await getSignInUrl()
+  redirect(url)
+}
 
 export default async function Home() {
   const { user } = await withAuth()
@@ -9,8 +15,6 @@ export default async function Home() {
     redirect('/dashboard')
   }
 
-  const signInUrl = await getSignInUrl()
-
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="mx-auto max-w-sm text-center">
@@ -18,9 +22,11 @@ export default async function Home() {
         <p className="mt-3 text-muted-foreground">
           Get started by signing in.
         </p>
-        <Button asChild className="mt-6">
-          <a href={signInUrl}>Sign in</a>
-        </Button>
+        <form action={signIn}>
+          <Button className="mt-6" type="submit">
+            Sign in
+          </Button>
+        </form>
       </div>
     </div>
   )
