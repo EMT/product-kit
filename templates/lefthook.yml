@@ -1,0 +1,5 @@
+pre-commit:
+  commands:
+    lint-staged:
+      glob: "*.{js,jsx,ts,tsx,css,json,md}"
+      run: pnpm exec lint-staged
