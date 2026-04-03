@@ -21,9 +21,13 @@ Bootstrap a new project in minutes. One script gets you from zero to a deployed 
 
 ## Usage
 
+Run this from wherever you want the project created:
+
 ```bash
-./bootstrap.sh my-project-name
+(t=$(mktemp -d) && git clone --depth 1 https://github.com/EMT/product-kit.git "$t" && "$t/bootstrap.sh" my-project-name && rm -rf "$t")
 ```
+
+No local install needed. The repo is cloned to a temp directory, the script runs, and the temp directory is cleaned up.
 
 The script prompts for:
 
