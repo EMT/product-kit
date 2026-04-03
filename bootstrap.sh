@@ -113,7 +113,7 @@ PROJECT_DIR="$(pwd)"
 # Step 2: Initialize shadcn/ui
 # ===================================================================
 info "Initializing shadcn/ui with Base UI..."
-pnpm dlx shadcn@latest init -d --base base-ui
+pnpm dlx shadcn@latest init -d --base base
 
 info "Adding baseline shadcn components..."
 pnpm dlx shadcn@latest add button card

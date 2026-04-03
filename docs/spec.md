@@ -35,7 +35,7 @@ A GitHub template repository with a `bootstrap.sh` script. The script automates 
 | Layer | Choice | Notes |
 |-------|--------|-------|
 | Styling | Tailwind CSS | Ships with `create-next-app` |
-| Components | shadcn/ui | Initialized with `--base base-ui` (not Radix) |
+| Components | shadcn/ui | Initialized with `--base base` (not Radix) |
 | Drawer | Base UI native Drawer | Not the shadcn Vaul-based drawer |
 | Dark mode | Dark only | `className="dark"` on `<html>`, no toggle |
 | Fonts | Next.js defaults | Geist Sans + Geist Mono |
@@ -81,7 +81,7 @@ These run without user interaction:
 1. **Scaffold Next.js app**
    - `pnpm create next-app@latest <name> --use-pnpm --ts --tailwind --eslint --app --src-dir --turbopack --import-alias "@/*"`
 2. **Initialize shadcn/ui**
-   - `pnpm dlx shadcn@latest init -d --base base-ui`
+   - `pnpm dlx shadcn@latest init -d --base base`
    - Replace the default drawer with Base UI's native Drawer component
 3. **Configure Prettier**
    - Install `prettier`, `prettier-plugin-tailwindcss`, `lint-staged`
