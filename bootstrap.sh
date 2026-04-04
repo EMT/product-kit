@@ -48,9 +48,9 @@ read -rp "GitHub org (leave blank for personal account): " GITHUB_ORG
 
 echo ""
 info "Available Vercel teams:"
-vercel teams ls 2>/dev/null || true
+vercel team ls 2>/dev/null || true
 echo ""
-read -rp "Vercel team/scope (leave blank for personal): " VERCEL_TEAM
+read -rp "Vercel team/scope slug (leave blank for personal): " VERCEL_TEAM
 
 echo ""
 echo "Data layer options:"
