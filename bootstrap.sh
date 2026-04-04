@@ -32,6 +32,12 @@ check_cmd node
 check_cmd git
 ok "All prerequisites found."
 
+# --- Verify auth ---
+info "Checking Vercel auth..."
+vercel whoami &>/dev/null || fail "Vercel CLI not authenticated. Run 'vercel login' first."
+info "Checking GitHub auth..."
+gh auth status &>/dev/null || fail "GitHub CLI not authenticated. Run 'gh auth login' first."
+
 # --- Parse arguments ---
 PROJECT_NAME="${1:-}"
 if [ -z "$PROJECT_NAME" ]; then
@@ -48,7 +54,7 @@ read -rp "GitHub org (leave blank for personal account): " GITHUB_ORG
 
 echo ""
 info "Available Vercel teams:"
-vercel team ls 2>/dev/null || true
+vercel team ls || warn "Could not list teams. You can still enter a team slug manually."
 echo ""
 read -rp "Vercel team/scope slug (leave blank for personal): " VERCEL_TEAM
 
